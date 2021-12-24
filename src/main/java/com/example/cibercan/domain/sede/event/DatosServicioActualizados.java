@@ -1,7 +1,7 @@
 package com.example.cibercan.domain.sede.event;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.example.cibercan.domain.sede.value.Descripcion;
+import com.example.cibercan.genericvalues.Descripcion;
 import com.example.cibercan.domain.sede.value.ServicioId;
 
 public class DatosServicioActualizados extends DomainEvent {

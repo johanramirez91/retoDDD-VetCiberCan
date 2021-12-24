@@ -1,4 +1,4 @@
-package com.example.cibercan.domain.sede.value;
+package com.example.cibercan.genericvalues;
 
 import co.com.sofka.domain.generic.ValueObject;
 

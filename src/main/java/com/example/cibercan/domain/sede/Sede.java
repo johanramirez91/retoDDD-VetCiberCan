@@ -5,6 +5,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import com.example.cibercan.domain.sede.event.*;
 import com.example.cibercan.domain.sede.value.*;
 import com.example.cibercan.domain.tienda.value.TiendaId;
+import com.example.cibercan.genericvalues.Descripcion;
 import com.example.cibercan.genericvalues.Email;
 import com.example.cibercan.genericvalues.Nombre;
 import com.example.cibercan.genericvalues.Telefono;

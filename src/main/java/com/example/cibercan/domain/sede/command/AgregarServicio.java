@@ -1,7 +1,7 @@
 package com.example.cibercan.domain.sede.command;
 
 import co.com.sofka.domain.generic.Command;
-import com.example.cibercan.domain.sede.value.Descripcion;
+import com.example.cibercan.genericvalues.Descripcion;
 import com.example.cibercan.domain.sede.value.SedeId;
 import com.example.cibercan.domain.sede.value.ServicioId;
 
