@@ -47,4 +47,18 @@ public class AnimalCliente extends Entity<AnimalClienteId> {
     public Raza getRaza() {
         return raza;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        AnimalCliente that = (AnimalCliente) o;
+        return Objects.equals(nombre, that.nombre) && Objects.equals(edadAnimalCliente, that.edadAnimalCliente) && Objects.equals(pesoAnimal, that.pesoAnimal) && Objects.equals(raza, that.raza);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), nombre, edadAnimalCliente, pesoAnimal, raza);
+    }
 }

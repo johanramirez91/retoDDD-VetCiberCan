@@ -14,7 +14,7 @@ public class Direccion implements ValueObject<String> {
             throw new IllegalArgumentException("La dirección debe contener al menos 9 caracteres");
         }
 
-        if (!direccion.matches("[\\\\w-]+.*[^\\\\d]$")){
+        if (direccion.length() < 10){
             throw new IllegalArgumentException("Dirección no valida");
         }
     }

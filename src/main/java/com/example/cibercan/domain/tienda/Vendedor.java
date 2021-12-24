@@ -46,4 +46,18 @@ public class Vendedor extends Entity<VendedorId> {
     public FechaPago getFechaPago() {
         return fechaPago;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Vendedor vendedor = (Vendedor) o;
+        return Objects.equals(email, vendedor.email) && Objects.equals(telefono, vendedor.telefono) && Objects.equals(nombre, vendedor.nombre) && Objects.equals(fechaPago, vendedor.fechaPago);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), email, telefono, nombre, fechaPago);
+    }
 }

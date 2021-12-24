@@ -38,4 +38,18 @@ public class Veterinario extends Entity<VeterinarioId> {
     public Telefono getTelefono() {
         return telefono;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Veterinario that = (Veterinario) o;
+        return Objects.equals(nombre, that.nombre) && Objects.equals(email, that.email) && Objects.equals(telefono, that.telefono);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), nombre, email, telefono);
+    }
 }

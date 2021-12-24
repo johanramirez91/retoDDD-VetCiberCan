@@ -38,4 +38,18 @@ public class Producto extends Entity<ProductoId> {
     public Cantidad Cantidad() {
         return cantidad;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Producto producto = (Producto) o;
+        return Objects.equals(nombre, producto.nombre) && Objects.equals(precio, producto.precio) && Objects.equals(cantidad, producto.cantidad);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), nombre, precio, cantidad);
+    }
 }

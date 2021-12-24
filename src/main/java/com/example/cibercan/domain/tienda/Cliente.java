@@ -59,4 +59,18 @@ public class Cliente extends Entity<ClienteId> {
     public Email Email() {
         return email;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Cliente cliente = (Cliente) o;
+        return Objects.equals(nombre, cliente.nombre) && Objects.equals(pagoDinero, cliente.pagoDinero) && Objects.equals(descuento, cliente.descuento) && Objects.equals(telefono, cliente.telefono) && Objects.equals(email, cliente.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), nombre, pagoDinero, descuento, telefono, email);
+    }
 }

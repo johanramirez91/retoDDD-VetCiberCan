@@ -22,4 +22,18 @@ public class Servicio extends Entity<ServicioId> {
     public Descripcion Descripcion() {
         return descripcion;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Servicio servicio = (Servicio) o;
+        return Objects.equals(descripcion, servicio.descripcion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), descripcion);
+    }
 }
