@@ -17,7 +17,7 @@ public class Estado implements ValueObject<Estado.EstadoSoliciutd> {
 
     public Estado(EstadoSoliciutd estado) {
         this.estado = Objects.requireNonNull(estado, "El estado no puede ser nulo");
-        if (!estado.values().equals(estado)){
+        if (!estado.equals(EstadoSoliciutd.values())){
             throw new IllegalArgumentException("Estado no valido");
         }
     }

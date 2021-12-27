@@ -6,7 +6,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import com.example.cibercan.domain.sede.Sede;
 import com.example.cibercan.domain.sede.command.ActualizarDatosServicio;
 
-public class ActualizarDatosVeterinarioCasoUso extends UseCase<RequestCommand<ActualizarDatosServicio>, ResponseEvents> {
+public class ActualizarDatosServicioCasoUso extends UseCase<RequestCommand<ActualizarDatosServicio>, ResponseEvents> {
 
     @Override
     public void executeUseCase(RequestCommand<ActualizarDatosServicio> actualizarDatosServicioRequestCommand) {
