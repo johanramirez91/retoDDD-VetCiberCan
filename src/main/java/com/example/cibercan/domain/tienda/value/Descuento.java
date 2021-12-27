@@ -10,11 +10,11 @@ public class Descuento implements ValueObject<Double> {
 
     public Descuento(Double descuento) {
         this.descuento = Objects.requireNonNull(descuento);
-        if (descuento < 1){
+        if (descuento < 1) {
             throw new IllegalArgumentException("El descuento debe ser mayor a 1");
         }
 
-        if (descuento.isInfinite()){
+        if (descuento.isInfinite()) {
             throw new IllegalArgumentException("El descuento debe ser un valor valido");
         }
     }

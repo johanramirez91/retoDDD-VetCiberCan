@@ -8,7 +8,10 @@ import com.example.cibercan.domain.tienda.command.ActualizarDatosCliente;
 import com.example.cibercan.domain.tienda.event.ClienteAsignado;
 import com.example.cibercan.domain.tienda.event.DatosClienteActualizados;
 import com.example.cibercan.domain.tienda.event.TiendaCreada;
-import com.example.cibercan.domain.tienda.value.*;
+import com.example.cibercan.domain.tienda.value.ClienteId;
+import com.example.cibercan.domain.tienda.value.Descuento;
+import com.example.cibercan.domain.tienda.value.PagoDinero;
+import com.example.cibercan.domain.tienda.value.TiendaId;
 import com.example.cibercan.genericvalues.Email;
 import com.example.cibercan.genericvalues.Nombre;
 import com.example.cibercan.genericvalues.Telefono;
@@ -22,7 +25,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
@@ -34,14 +36,14 @@ class ActualizarDatosClienteCasoUsoTest {
     private DomainEventRepository repository;
 
     @BeforeEach
-    public void config(){
+    public void config() {
         actualizarDatosClienteCasoUso = new ActualizarDatosClienteCasoUso();
         repository = mock(DomainEventRepository.class);
         actualizarDatosClienteCasoUso.addRepository(repository);
     }
 
     @Test
-    public void actualizarDatosCliente(){
+    void actualizarDatosCliente() {
 
         //Arrange
         var command = new ActualizarDatosCliente(
@@ -75,7 +77,7 @@ class ActualizarDatosClienteCasoUsoTest {
 
     }
 
-    private List<DomainEvent> events(){
+    private List<DomainEvent> events() {
         return List.of(new TiendaCreada(
                         new Nombre("CiberCan")),
 

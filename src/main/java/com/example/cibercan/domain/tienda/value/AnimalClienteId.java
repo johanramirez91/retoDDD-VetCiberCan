@@ -7,11 +7,11 @@ public class AnimalClienteId extends Identity {
     public AnimalClienteId() {
     }
 
-    public AnimalClienteId(String id){
+    public AnimalClienteId(String id) {
         super(id);
     }
 
-    public static AnimalClienteId of(String id){
+    public static AnimalClienteId of(String id) {
         return new AnimalClienteId(id);
     }
 }

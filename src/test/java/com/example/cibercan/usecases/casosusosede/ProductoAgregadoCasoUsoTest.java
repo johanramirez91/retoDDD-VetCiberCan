@@ -21,8 +21,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(MockitoExtension.class)
 class ProductoAgregadoCasoUsoTest {
 
@@ -30,7 +28,9 @@ class ProductoAgregadoCasoUsoTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarProducto(){
+    void agregarProducto() {
+
+        //Arrange
         var event = new ProductoAgregado(
                 ProductoId.of("prod035"),
                 new Nombre("Antipulgas"),
@@ -43,12 +43,14 @@ class ProductoAgregadoCasoUsoTest {
         Mockito.when(repository.getEventsBy("CiberCan")).thenReturn(events());
         casoUso.addRepository(repository);
 
+        //Act
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor("CiberCan")
                 .syncExecutor(casoUso, new TriggeredEvent<>(event))
                 .orElseThrow()
                 .getDomainEvents();
 
+        //Assert
         var productoAsignadoEvent = (ProductoAgregado) events.get(0);
         Assertions.assertEquals("prod035", productoAsignadoEvent.getProductoId().value());
         Assertions.assertEquals("Antipulgas", productoAsignadoEvent.getNombre().value());
@@ -56,7 +58,7 @@ class ProductoAgregadoCasoUsoTest {
         Assertions.assertEquals(10000D, productoAsignadoEvent.getPrecio().value());
     }
 
-    private List<DomainEvent> events(){
+    private List<DomainEvent> events() {
         return List.of(
                 new SedeCreada(new Nombre("Chapinero"),
                         new Telefono("3008544796"),

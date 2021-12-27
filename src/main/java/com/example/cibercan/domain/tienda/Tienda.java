@@ -20,12 +20,12 @@ public class Tienda extends AggregateEvent<TiendaId> {
     protected Set<AnimalCliente> animales;
     protected Set<Vendedor> vendedores;
 
-    private Tienda(TiendaId tiendaId){
+    private Tienda(TiendaId tiendaId) {
         super(tiendaId);
         subscribe(new TiendaChange(this));
     }
 
-    public static Tienda from(TiendaId tiendaId, List<DomainEvent> events){
+    public static Tienda from(TiendaId tiendaId, List<DomainEvent> events) {
         var tienda = new Tienda(tiendaId);
         events.forEach(tienda::applyEvent);
         return tienda;
@@ -36,7 +36,7 @@ public class Tienda extends AggregateEvent<TiendaId> {
         appendChange(new TiendaCreada(nombre));
     }
 
-    public void asignarCliente(ClienteId clienteId, Nombre nombre, Email email, Telefono telefono, PagoDinero pagoDinero, Descuento descuento){
+    public void asignarCliente(ClienteId clienteId, Nombre nombre, Email email, Telefono telefono, PagoDinero pagoDinero, Descuento descuento) {
         Objects.requireNonNull(clienteId, "El id no puede ser nulo");
         Objects.requireNonNull(email, "El email no pude ser nulo");
         Objects.requireNonNull(telefono, "El telefono no puede ser nulo");
@@ -45,11 +45,11 @@ public class Tienda extends AggregateEvent<TiendaId> {
         appendChange(new ClienteAsignado(clienteId, nombre, email, telefono, pagoDinero, descuento)).apply();
     }
 
-    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Email email, Telefono telefono, PagoDinero pagoDinero, Descuento descuento){
+    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, Email email, Telefono telefono, PagoDinero pagoDinero, Descuento descuento) {
         appendChange(new DatosClienteActualizados(clienteId, nombre, pagoDinero, email, telefono, descuento)).apply();
     }
 
-    public void asignarVendedor(VendedorId vendedorId, Nombre nombre, Telefono telefono, Email email, FechaPago fechaPago){
+    public void asignarVendedor(VendedorId vendedorId, Nombre nombre, Telefono telefono, Email email, FechaPago fechaPago) {
         Objects.requireNonNull(vendedorId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(telefono);
@@ -57,17 +57,17 @@ public class Tienda extends AggregateEvent<TiendaId> {
         appendChange(new VendedorAsignado(vendedorId, email, telefono, nombre, fechaPago)).apply();
     }
 
-    public void asignarDescuento(ClienteId clienteId, Descuento descuento){
+    public void asignarDescuento(ClienteId clienteId, Descuento descuento) {
         Objects.requireNonNull(clienteId, "El id no puede ser nulo");
         Objects.requireNonNull(descuento, "El descuento no puede ser nulo");
         appendChange(new DescuentoAsignado(clienteId, descuento));
     }
 
-    public void actualizarDatosVendedor(VendedorId vendedorId, Email email, Telefono telefono, Nombre nombre, FechaPago fechaPago){
+    public void actualizarDatosVendedor(VendedorId vendedorId, Email email, Telefono telefono, Nombre nombre, FechaPago fechaPago) {
         appendChange(new DatosVendedorActualizados(vendedorId, email, telefono, nombre, fechaPago)).apply();
     }
 
-    public void asignarAnimalCliente(AnimalClienteId animalClienteId, Nombre nombre, PesoAnimal pesoAnimal, Raza raza, EdadAnimalCliente edadAnimalCliente){
+    public void asignarAnimalCliente(AnimalClienteId animalClienteId, Nombre nombre, PesoAnimal pesoAnimal, Raza raza, EdadAnimalCliente edadAnimalCliente) {
         Objects.requireNonNull(animalClienteId);
         Objects.requireNonNull(nombre);
         Objects.requireNonNull(pesoAnimal);
@@ -76,24 +76,24 @@ public class Tienda extends AggregateEvent<TiendaId> {
         appendChange(new AnimalClienteAsignado(animalClienteId, nombre, edadAnimalCliente, pesoAnimal, raza)).apply();
     }
 
-    public void actualizarDatosAnimalCliente(AnimalClienteId animalClienteId, Nombre nombre, PesoAnimal pesoAnimal, Raza raza, EdadAnimalCliente edadAnimalCliente){
+    public void actualizarDatosAnimalCliente(AnimalClienteId animalClienteId, Nombre nombre, PesoAnimal pesoAnimal, Raza raza, EdadAnimalCliente edadAnimalCliente) {
         appendChange(new DatosAnimalClienteActualizados(animalClienteId, nombre, edadAnimalCliente, pesoAnimal, raza)).apply();
     }
 
     //Querys para validaciones
-    public Optional<Cliente> obtenerClientesPorId(ClienteId clienteId){
+    public Optional<Cliente> obtenerClientesPorId(ClienteId clienteId) {
         return Clientes().stream()
                 .filter(cliente -> cliente.identity().equals(clienteId))
                 .findFirst();
     }
 
-    public Optional<AnimalCliente> obtenerAnimalesPorId(AnimalClienteId animalClienteId){
+    public Optional<AnimalCliente> obtenerAnimalesPorId(AnimalClienteId animalClienteId) {
         return Animales().stream()
                 .filter(animal -> animal.identity().equals(animalClienteId))
                 .findFirst();
     }
 
-    public Optional<Vendedor> obtenerVendedorePorId(VendedorId vendedorId){
+    public Optional<Vendedor> obtenerVendedorePorId(VendedorId vendedorId) {
         return Vendedores().stream()
                 .filter(vendedor -> vendedor.identity().equals(vendedorId))
                 .findFirst();

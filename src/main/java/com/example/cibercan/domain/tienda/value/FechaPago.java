@@ -15,13 +15,13 @@ public class FechaPago implements ValueObject<String> {
 
     public FechaPago(int dia, int mes, int anio) {
         var fechaPago = LocalDate.of(Objects.requireNonNull(anio), Objects.requireNonNull(mes), Objects.requireNonNull(dia));
-        if (fechaPago.isBefore(LocalDate.now())){
+        if (fechaPago.isBefore(LocalDate.now())) {
             throw new IllegalArgumentException("La fecha de pago no puede ser del pasado");
         }
 
         this.fecha = fechaPago.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
 
-        if (!DATE_PATTERN.matcher(this.fecha).matches()){
+        if (!DATE_PATTERN.matcher(this.fecha).matches()) {
             throw new IllegalArgumentException("La fecha no esta en el formato valido dd-mm-yyyy");
         }
     }

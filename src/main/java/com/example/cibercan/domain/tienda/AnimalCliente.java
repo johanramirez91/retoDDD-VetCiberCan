@@ -25,7 +25,7 @@ public class AnimalCliente extends Entity<AnimalClienteId> {
         this.raza = Objects.requireNonNull(raza, "La raza no puede ser nulo");
     }
 
-    public void actualizarDatosAnimalCliente(Nombre nombre, EdadAnimalCliente edadAnimalCliente, PesoAnimal pesoAnimal, Raza raza){
+    public void actualizarDatosAnimalCliente(Nombre nombre, EdadAnimalCliente edadAnimalCliente, PesoAnimal pesoAnimal, Raza raza) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.edadAnimalCliente = Objects.requireNonNull(edadAnimalCliente, "La edad no puede ser nulo");
         this.pesoAnimal = Objects.requireNonNull(pesoAnimal, "El peso no puede ser nulo");

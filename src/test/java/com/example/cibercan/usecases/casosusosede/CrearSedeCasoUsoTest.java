@@ -1,7 +1,6 @@
 package com.example.cibercan.usecases.casosusosede;
 
 import co.com.sofka.business.generic.UseCaseHandler;
-import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
 import com.example.cibercan.domain.sede.command.CrearSede;
 import com.example.cibercan.domain.sede.event.SedeCreada;
@@ -12,16 +11,13 @@ import com.example.cibercan.genericvalues.Telefono;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CrearSedeCasoUsoTest {
 
     @Test
-    public void crearSede(){
+    void crearSede() {
 
         //Arrange
         var command = new CrearSede(

@@ -11,7 +11,7 @@ public class VendedorId extends Identity {
         super(id);
     }
 
-    public static VendedorId of(String id){
+    public static VendedorId of(String id) {
         return new VendedorId(id);
     }
 

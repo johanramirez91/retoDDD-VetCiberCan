@@ -10,11 +10,11 @@ public class Telefono implements ValueObject<String> {
 
     public Telefono(String telefono) {
         this.telefono = Objects.requireNonNull(telefono);
-        if (this.telefono.isBlank()){
+        if (this.telefono.isBlank()) {
             throw new IllegalArgumentException("El numero de telefono no puede estar vacio");
         }
 
-        if (this.telefono.length() != 10){
+        if (this.telefono.length() != 10) {
             throw new IllegalArgumentException("El numero debe tener 10 digitos");
         }
     }

@@ -11,15 +11,15 @@ public class PesoAnimal implements ValueObject<Float> {
     public PesoAnimal(Float pesoAnimal) {
         this.pesoAnimal = Objects.requireNonNull(pesoAnimal, "El peso no puede estar vacio");
 
-        if (pesoAnimal < 1){
+        if (pesoAnimal < 1) {
             throw new IllegalArgumentException("El peso del animal debe ser mayor que 0");
         }
 
-        if (pesoAnimal.isInfinite()){
+        if (pesoAnimal.isInfinite()) {
             throw new IllegalArgumentException("Seguramente es hora de cambiar la bascula");
         }
 
-        if (pesoAnimal.isNaN()){
+        if (pesoAnimal.isNaN()) {
             throw new IllegalArgumentException("El peso del animal debe ser un numero");
         }
     }

@@ -13,11 +13,11 @@ public class Fecha implements ValueObject<String> {
     public Fecha(String fecha) {
         this.fecha = Objects.requireNonNull(fecha);
 
-        if (this.fecha.isBlank()){
+        if (this.fecha.isBlank()) {
             throw new IllegalArgumentException("La fecha no puede estar vacia");
         }
 
-        if (!DATE_PATTERN.matcher(this.fecha).matches()){
+        if (!DATE_PATTERN.matcher(this.fecha).matches()) {
             throw new IllegalArgumentException("La fecha no esta en el formato valido aaaa-mm-dd");
         }
     }

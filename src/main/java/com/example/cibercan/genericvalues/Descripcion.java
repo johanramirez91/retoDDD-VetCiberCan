@@ -10,11 +10,11 @@ public class Descripcion implements ValueObject<String> {
 
     public Descripcion(String descripcion) {
         this.descripcion = Objects.requireNonNull(descripcion, "La descripción no puede ser nula");
-        if (descripcion.isBlank()){
+        if (descripcion.isBlank()) {
             throw new IllegalArgumentException("La descripción no puede estar vacia");
         }
 
-        if (descripcion.length() < 8){
+        if (descripcion.length() < 8) {
             throw new IllegalArgumentException("La descripción debe tener al menos 8 caracteres");
         }
     }

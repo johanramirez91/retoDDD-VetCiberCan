@@ -18,7 +18,7 @@ public class Nombre implements ValueObject<String> {
             throw new IllegalArgumentException("El nombre debe tener al menos 3 letras");
         }
 
-        if (this.nombre.length() > 30){
+        if (this.nombre.length() > 30) {
             throw new IllegalArgumentException("El nombre debe contener menos de 30 letras");
         }
     }

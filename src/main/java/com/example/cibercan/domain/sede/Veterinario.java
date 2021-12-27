@@ -21,7 +21,7 @@ public class Veterinario extends Entity<VeterinarioId> {
         this.telefono = telefono;
     }
 
-    public void actualizarDatosVeterinario(Nombre nombre, Email email, Telefono telefono){
+    public void actualizarDatosVeterinario(Nombre nombre, Email email, Telefono telefono) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.email = Objects.requireNonNull(email, "El email no puede ser nulo");
         this.telefono = Objects.requireNonNull(telefono, "El telefono no puede ser nulo");

@@ -10,7 +10,7 @@ public class Cantidad implements ValueObject<Integer> {
 
     public Cantidad(Integer cantidad) {
         this.cantidad = Objects.requireNonNull(cantidad, "La cantidad no puede ser nula");
-        if (cantidad < 1){
+        if (cantidad < 1) {
             throw new IllegalArgumentException("La cantidad debe ser mayor o igual que 1");
         }
     }

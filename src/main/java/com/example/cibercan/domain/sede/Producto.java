@@ -21,7 +21,7 @@ public class Producto extends Entity<ProductoId> {
         this.cantidad = cantidad;
     }
 
-    public void actualizarDatosProducto(Nombre nombre, Precio precio, Cantidad cantidad){
+    public void actualizarDatosProducto(Nombre nombre, Precio precio, Cantidad cantidad) {
         this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.precio = Objects.requireNonNull(precio, "El precio no puede ser nulo");
         this.cantidad = Objects.requireNonNull(cantidad, "La cantidad no puede ser nulo");

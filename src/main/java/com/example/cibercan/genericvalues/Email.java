@@ -10,11 +10,11 @@ public class Email implements ValueObject<String> {
 
     public Email(String email) {
         this.email = Objects.requireNonNull(email);
-        if (this.email.isBlank()){
+        if (this.email.isBlank()) {
             throw new IllegalArgumentException("El email no puede estar vacio");
         }
 
-        if (!this.email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")){
+        if (!this.email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")) {
             throw new IllegalArgumentException("El email no es valido");
         }
     }

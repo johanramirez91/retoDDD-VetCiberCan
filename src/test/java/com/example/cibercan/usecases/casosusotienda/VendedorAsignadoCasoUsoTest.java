@@ -20,8 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ExtendWith(MockitoExtension.class)
 class VendedorAsignadoCasoUsoTest {
 
@@ -29,13 +27,14 @@ class VendedorAsignadoCasoUsoTest {
     private DomainEventRepository repository;
 
     @Test
-    void agregarVendedor(){
+    //Arrange
+    void agregarVendedor() {
         var event = new VendedorAsignado(
                 VendedorId.of("v004"),
                 new Email("vendedor@cibercan.com"),
                 new Telefono("3118635327"),
                 new Nombre("David"),
-                new FechaPago(30,12,2021)
+                new FechaPago(30, 12, 2021)
         );
         event.setAggregateRootId("tienda online");
         var casoUso = new VendedorAsignadoCasoUso();
@@ -43,12 +42,14 @@ class VendedorAsignadoCasoUsoTest {
         Mockito.when(repository.getEventsBy("tienda online")).thenReturn(events());
         casoUso.addRepository(repository);
 
+        //Act
         var events = UseCaseHandler.getInstance()
                 .setIdentifyExecutor("tienda online")
                 .syncExecutor(casoUso, new TriggeredEvent<>(event))
                 .orElseThrow()
                 .getDomainEvents();
 
+        //Assert
         var vendedorAsignadoEvent = (VendedorAsignado) events.get(0);
         Assertions.assertEquals("3118635327", vendedorAsignadoEvent.getTelefono().value());
         Assertions.assertEquals("vendedor@cibercan.com", vendedorAsignadoEvent.getEmail().value());
@@ -59,14 +60,14 @@ class VendedorAsignadoCasoUsoTest {
 
     }
 
-    private List<DomainEvent> events(){
+    private List<DomainEvent> events() {
         return List.of(
                 new TiendaCreada(new Nombre("tienda online")),
                 new VendedorAsignado(VendedorId.of("v004"),
                         new Email("vendedor@cibercan.com"),
                         new Telefono("3118635327"),
                         new Nombre("David"),
-                        new FechaPago(30,12,2021))
+                        new FechaPago(30, 12, 2021))
         );
     }
 }

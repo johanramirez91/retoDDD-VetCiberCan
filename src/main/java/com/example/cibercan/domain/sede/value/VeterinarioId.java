@@ -11,7 +11,7 @@ public class VeterinarioId extends Identity {
         super(id);
     }
 
-    public static VeterinarioId of(String id){
+    public static VeterinarioId of(String id) {
         return new VeterinarioId(id);
     }
 }

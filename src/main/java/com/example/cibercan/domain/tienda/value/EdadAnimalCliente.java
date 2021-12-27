@@ -11,11 +11,11 @@ public class EdadAnimalCliente implements ValueObject<Integer> {
     public EdadAnimalCliente(Integer edadAnimalCliente) {
         this.edadAnimalCliente = Objects.requireNonNull(edadAnimalCliente, "La edad no puede estar vacia");
 
-        if (edadAnimalCliente < 1){
+        if (edadAnimalCliente < 1) {
             throw new IllegalArgumentException("La edad debe ser mayor que 0");
         }
 
-        if (edadAnimalCliente > 25){
+        if (edadAnimalCliente > 25) {
             throw new IllegalArgumentException("No es posible que el animal tenga mas de 25 años");
         }
     }

@@ -10,11 +10,11 @@ public class Direccion implements ValueObject<String> {
 
     public Direccion(String direccion) {
         this.direccion = Objects.requireNonNull(direccion);
-        if (direccion.length() < 9){
+        if (direccion.length() < 9) {
             throw new IllegalArgumentException("La dirección debe contener al menos 9 caracteres");
         }
 
-        if (direccion.length() < 10){
+        if (direccion.length() < 10) {
             throw new IllegalArgumentException("Dirección no valida");
         }
     }

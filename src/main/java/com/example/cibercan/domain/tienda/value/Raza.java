@@ -11,11 +11,11 @@ public class Raza implements ValueObject<String> {
     public Raza(String raza) {
         this.raza = Objects.requireNonNull(raza, "La raza no puede ser nula");
 
-        if (raza.isBlank()){
+        if (raza.isBlank()) {
             throw new IllegalArgumentException("La raza no puede estar vacia");
         }
 
-        if (raza.length() < 5){
+        if (raza.length() < 5) {
             throw new IllegalArgumentException("Se debe asignar una raza valida");
         }
     }

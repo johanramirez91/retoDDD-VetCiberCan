@@ -11,7 +11,7 @@ public class ProductoId extends Identity {
         super(id);
     }
 
-    public static ProductoId of(String id){
+    public static ProductoId of(String id) {
         return new ProductoId(id);
     }
 }

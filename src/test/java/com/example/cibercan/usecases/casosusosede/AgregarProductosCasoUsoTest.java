@@ -20,7 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
@@ -39,7 +38,7 @@ class AgregarProductosCasoUsoTest {
     }
 
     @Test
-    public void agregarProducto(){
+    void agregarProducto(){
 
         //Arrange
         var command = new AgregarProducto(

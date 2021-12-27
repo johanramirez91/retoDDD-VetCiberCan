@@ -4,7 +4,6 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 import com.example.cibercan.domain.tienda.Tienda;
-import com.example.cibercan.domain.tienda.event.TiendaCreada;
 import com.example.cibercan.domain.tienda.event.VendedorAsignado;
 import com.example.cibercan.domain.tienda.value.FechaPago;
 import com.example.cibercan.domain.tienda.value.TiendaId;
@@ -23,7 +22,7 @@ public class VendedorAsignadoCasoUso extends UseCase<TriggeredEvent<VendedorAsig
                 new Nombre("David"),
                 new Telefono("3118635327"),
                 new Email("vendedor@cibercan.com"),
-                new FechaPago(30,12,2021));
+                new FechaPago(30, 12, 2021));
         emit().onResponse(new ResponseEvents(vendedor.getUncommittedChanges()));
     }
 }

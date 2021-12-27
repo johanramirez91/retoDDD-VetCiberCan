@@ -27,11 +27,11 @@ public class Cliente extends Entity<ClienteId> {
         this.email = Objects.requireNonNull(email);
     }
 
-    public void asignarDescuento(Descuento descuento, ClienteId clienteId){
+    public void asignarDescuento(Descuento descuento, ClienteId clienteId) {
         this.descuento = descuento;
     }
 
-    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, PagoDinero pagoDinero, Descuento descuento, Telefono telefono, Email email){
+    public void actualizarDatosCliente(ClienteId clienteId, Nombre nombre, PagoDinero pagoDinero, Descuento descuento, Telefono telefono, Email email) {
         this.entityId = Objects.requireNonNull(clienteId, "El id no puede ser nulo");
         this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
         this.pagoDinero = Objects.requireNonNull(pagoDinero, "El pago no puede ser nulo");

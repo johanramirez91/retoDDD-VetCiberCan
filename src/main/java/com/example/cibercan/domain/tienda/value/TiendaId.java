@@ -11,7 +11,7 @@ public class TiendaId extends Identity {
         super(id);
     }
 
-    public static TiendaId of(String id){
+    public static TiendaId of(String id) {
         return new TiendaId(id);
     }
 }

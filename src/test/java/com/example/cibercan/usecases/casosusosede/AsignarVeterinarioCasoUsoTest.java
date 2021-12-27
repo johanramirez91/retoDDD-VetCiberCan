@@ -23,7 +23,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,14 +34,14 @@ class AsignarVeterinarioCasoUsoTest {
     private DomainEventRepository repository;
 
     @BeforeEach
-    public void config(){
+    public void config() {
         asignarVeterinarioCasoUso = new AsignarVeterinarioCasoUso();
         repository = mock(DomainEventRepository.class);
         asignarVeterinarioCasoUso.addRepository(repository);
     }
 
     @Test
-    public void asignarVeterinario(){
+    void asignarVeterinario() {
 
         //Arrange
         var command = new AsignarVeterinario(
@@ -72,7 +71,7 @@ class AsignarVeterinarioCasoUsoTest {
         Assertions.assertEquals("3008544796", veterinarioAsignadoEvent.getTelefono().value());
     }
 
-    private List<DomainEvent> events(){
+    private List<DomainEvent> events() {
         return List.of(new SedeCreada(
                 new Nombre("Chapinero"),
                 new Telefono("3001234567"),

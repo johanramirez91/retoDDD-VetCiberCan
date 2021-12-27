@@ -10,15 +10,15 @@ public class Precio implements ValueObject<Double> {
 
     public Precio(Double precio) {
         this.precio = Objects.requireNonNull(precio);
-        if (precio.isInfinite()){
+        if (precio.isInfinite()) {
             throw new IllegalArgumentException("El precio debe ser un numero aceptado");
         }
 
-        if (precio.isNaN()){
+        if (precio.isNaN()) {
             throw new IllegalArgumentException("El precio debe ser un valor numérico");
         }
 
-        if (precio < 1){
+        if (precio < 1) {
             throw new IllegalArgumentException("El precio debe ser mayor o igual a 1");
         }
     }

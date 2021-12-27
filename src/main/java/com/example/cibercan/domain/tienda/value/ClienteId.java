@@ -11,7 +11,7 @@ public class ClienteId extends Identity {
         super(id);
     }
 
-    public static ClienteId of(String id){
+    public static ClienteId of(String id) {
         return new ClienteId(id);
     }
 }

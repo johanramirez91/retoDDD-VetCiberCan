@@ -11,7 +11,7 @@ public class SedeId extends Identity {
         super(id);
     }
 
-    public static SedeId of(String id){
+    public static SedeId of(String id) {
         return new SedeId(id);
     }
 }

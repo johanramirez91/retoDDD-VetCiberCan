@@ -11,7 +11,7 @@ public class PagoDinero implements ValueObject<Double> {
     public PagoDinero(Double pagoDinero) {
         this.pagoDinero = Objects.requireNonNull(pagoDinero, "El pago no puede ser nulo");
 
-        if (pagoDinero < 1){
+        if (pagoDinero < 1) {
             throw new IllegalArgumentException("El pago debe ser mayo que 0");
         }
     }
